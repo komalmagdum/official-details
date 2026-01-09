@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Official Details</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            color: #555;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .success-message {
+            display: none;
+            background: #4caf50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Official Details</h1>
+        <form id="detailsForm">
+            <div class="form-group">
+                <label for="companyName">Company Name</label>
+                <input
+                    type="text"
+                    id="companyName"
+                    name="companyName"
+                    placeholder="Enter company name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea
+                    id="address"
+                    name="address"
+                    placeholder="Enter company address"
+                    required
+                ></textarea>
+            </div>
+
+            <button type="submit">Submit Details</button>
+        </form>
+
+        <div class="success-message" id="successMessage">
+            Details submitted successfully!
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('detailsForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const companyName = document.getElementById('companyName').value;
+            const address = document.getElementById('address').value;
+
+            console.log('Company Name:', companyName);
+            console.log('Address:', address);
+
+            document.getElementById('successMessage').style.display = 'block';
+
+            setTimeout(() => {
+                document.getElementById('detailsForm').reset();
+                document.getElementById('successMessage').style.display = 'none';
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
